@@ -1,0 +1,16 @@
+{
+  "name": "menumaker",
+  "version": "1.0.0",
+  "description": "menu generator",
+  "main": "index.html",
+  "dependencies": {
+    "js-yaml": "^3.14.0",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bleuarff",
+  "license": "ISC"
+}

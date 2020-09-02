@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Menumaker</title>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/js-yaml/dist/js-yaml.min.js"></script>
+    <script src="./menumaker.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Menumaker</h1>
+    <div id="app">
+      <button v-on:click="generate(7)" id="go">Generer le menu</button>
+
+      <div id="menu-ctnr">
+        <div v-for="(day, i) in menu" class="day">
+          <span class="dow">{{semaine[day.dow]}}</span>
+          <ol class="menus">
+            <li>
+              <div class="menu">
+                {{day.dej}}
+              </div>
+            </li>
+            <li>
+              <div class="menu">
+                {{day.diner}}
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      vm.$mount('#app')
+</script>
+  </body>
+</html>
