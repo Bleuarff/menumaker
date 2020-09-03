@@ -7,6 +7,7 @@
   flex-flow: row wrap;
   justify-content: center;
   height: 80vh;
+  margin: 1em;
 }
 
 .day{
@@ -62,4 +63,8 @@
    left: 50%;
    transform: translate(-50%, -50%);
 
+}
+
+.title{
+  font-weight: bold;
 }

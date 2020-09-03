@@ -1,29 +1,75 @@
-- lasagnes
-- salade de riz
-- salde verte
-- crottins de chavignols
-- salade grecque
-- saucisses lentilles
-- saucisses puree
-- gratin de pdt
-- gratin de chou fleur
-- soupe de potiron/courgette
-- croque-monsieur
-- galettes legumes/avoine
-- hamburgers salade
-- poelee haricots/oignons/tomates/steacks
-- poisson-riz-haricots
-- quiche lorraine
-- quiche thon
-- quiche epinard chevre
-- quiche saumon
-- pates-courgettes
-- riz petit-pois
-- semoule courgettes
-- ratatouille
-- boudin noir puree
-- boudin blanc salade
-- lasagnes saumon
-- lasagnes vegetariennes
-- oeufs a la coque
-- pdt steacks haricots
+-
+  nom: lasagnes
+  
+-
+  nom: salade de riz
+-
+  nom: salde verte
+-
+  nom: crottins de chavignols
+-
+  nom: salade grecque
+-
+  nom: random_1
+  viande: saucisse, jambon
+  feculent: pommes de terre, semoule, lentilles, pâtes, riz
+  legume: courgettes, petits pois, haricots, broccolis, chou-fleur
+-
+  nom: saucisses puree
+  repas: dej
+-
+  nom: poulet rôti
+  repas: dej
+  dow: 5, 6
+-
+  nom: gratin de pdt
+-
+  nom: gratin de chou fleur
+- nom: soupe de potiron/courgette
+  repas: diner
+
+- nom: omelette
+
+- nom: croque-monsieur
+- nom: galettes legumes/avoine
+  repas: diner
+-
+  nom: hamburgers salade
+  repas: dej
+-
+  nom: poelee haricots/oignons/tomates/steacks
+  repas: dej
+-
+  nom: poisson-riz-haricots
+  repas: dej
+-
+  nom: quiche lorraine
+-
+  nom: quiche thon
+-
+  nom: quiche epinard chevre
+-
+  nom: quiche saumon
+-
+  nom: pates-courgettes
+-
+  nom: riz petit-pois
+-
+  nom: semoule courgettes
+-
+  nom: ratatouille
+-
+  nom: boudin noir puree
+  repas: dej
+-
+  nom: boudin blanc salade
+-
+  nom: lasagnes saumon
+-
+  nom: lasagnes vegetariennes
+-
+  nom: oeufs a la coque
+  repas: diner
+-
+  nom: pdt steacks haricots
+  repas: dej

@@ -4,6 +4,9 @@ const vm = new Vue({
     menu: [],
     semaine: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
   },
+  watchers: {
+    // dejList:
+  },
   created: async function(){
   },
   mounted: async function(){
@@ -24,15 +27,22 @@ const vm = new Vue({
     generate: function(days){
       this.menu = []
 
+      const dejList = this.plats.filter(x => !x.repas || x.repas === 'dej')
+      const dinerList = this.plats.filter(x => !x.repas || x.repas === 'diner')
+
       for (let i = 0; i < days; i++){
-        const idx1 = Math.floor(Math.random() * Math.floor(this.plats.length))
-        const idx2 = Math.floor(Math.random() * Math.floor(this.plats.length))
+        const idxDej = Math.floor(Math.random() * Math.floor(dejList.length))
+        const idxDiner = Math.floor(Math.random() * Math.floor(dinerList.length))
         this.menu.push({
           dow: i % 7,
-          dej: this.plats[idx1],
-          diner: this.plats[idx2]
+          dej: dejList[idxDej].nom,
+          diner: dinerList[idxDiner].nom
         })
       }
+    },
+
+    getPlat: function(idx){
+      
     }
   }
 })
