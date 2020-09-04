@@ -4,8 +4,13 @@ const vm = new Vue({
     menu: [],
     semaine: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
   },
-  watchers: {
-    // dejList:
+  computed: {
+    dejList: function(){
+      return this.plats.filter(x => !x.repas || x.repas === 'dej')
+    },
+    dinerList: function(){
+      return this.plats.filter(x => !x.repas || x.repas === 'diner')
+    }
   },
   created: async function(){
   },
@@ -21,28 +26,40 @@ const vm = new Vue({
       console.error(ex)
     }
 
+    this.generate(7)
     document.getElementById('go').focus()
   },
   methods: {
-    generate: function(days){
+    generate: function(days = 7){
+      console.debug(`generate menu for ${days} days`)
       this.menu = []
 
-      const dejList = this.plats.filter(x => !x.repas || x.repas === 'dej')
-      const dinerList = this.plats.filter(x => !x.repas || x.repas === 'diner')
-
       for (let i = 0; i < days; i++){
-        const idxDej = Math.floor(Math.random() * Math.floor(dejList.length))
-        const idxDiner = Math.floor(Math.random() * Math.floor(dinerList.length))
+        const dej = this.getPlat('dej'),
+              diner = this.getPlat('diner')
+
         this.menu.push({
           dow: i % 7,
-          dej: dejList[idxDej].nom,
-          diner: dinerList[idxDiner].nom
+          dej: dej.nom,
+          diner: diner.nom
         })
       }
     },
 
-    getPlat: function(idx){
-      
+    getPlat: function(repas){
+      let list
+
+      if (repas === 'dej')
+        list = this.dejList
+      else
+        list = this.dinerList
+
+      const idx = Math.floor(Math.random() * Math.floor(list.length))
+      const plat = list[idx]
+
+      this.plats = this.plats.filter(x => x != plat)
+
+      return plat
     }
   }
 })

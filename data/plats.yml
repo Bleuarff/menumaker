@@ -1,30 +1,35 @@
--
-  nom: lasagnes
-  
--
-  nom: salade de riz
--
-  nom: salde verte
--
-  nom: crottins de chavignols
--
-  nom: salade grecque
--
-  nom: random_1
-  viande: saucisse, jambon
+# criteres:
+# - dow: limite plats à certains jours de la semaine
+# - repas: limite plat au déjeuner ou au diner
+# - max (default: 1): ocurrences du plat dans les menus
+
+- nom: lasagnes
+
+- nom: salade de riz
+
+- nom: salde verte
+
+- nom: crottins de chavignols
+
+- nom: salade grecque
+
+- nom: random_1 [TODO]
+  viande: saucisse, jambon, filet de poulet
   feculent: pommes de terre, semoule, lentilles, pâtes, riz
   legume: courgettes, petits pois, haricots, broccolis, chou-fleur
--
-  nom: saucisses puree
+  max: 4
+
+- nom: saucisses puree
   repas: dej
--
-  nom: poulet rôti
+
+- nom: poulet rôti
   repas: dej
   dow: 5, 6
--
-  nom: gratin de pdt
--
-  nom: gratin de chou fleur
+
+- nom: gratin de pdt
+
+- nom: gratin de chou fleur
+
 - nom: soupe de potiron/courgette
   repas: diner
 
@@ -42,14 +47,15 @@
 -
   nom: poisson-riz-haricots
   repas: dej
--
-  nom: quiche lorraine
--
-  nom: quiche thon
--
-  nom: quiche epinard chevre
--
-  nom: quiche saumon
+
+- nom: quiche [TODO]
+  variante: lorraine, thon, épinard/chèvre, saumon
+# -
+#   nom: quiche thon
+# -
+#   nom: quiche epinard chevre
+# -
+#   nom: quiche saumon
 -
   nom: pates-courgettes
 -
