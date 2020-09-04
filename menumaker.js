@@ -3,6 +3,7 @@ const vm = new Vue({
     plats: [],
     menu: [],
     semaine: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+    refPlats: []
   },
   computed: {
     dejList: function(){
@@ -19,7 +20,11 @@ const vm = new Vue({
           data = await res.text()
 
     try{
-      this.plats = jsyaml.safeLoad(data)
+      this.refPlats = jsyaml.safeLoad(data).map(x => {
+        x.max = x.max || 1
+        x.count = 0
+        return x
+      })
     }
     catch(ex){
       alert('Erreur au chargement des données')
@@ -31,7 +36,10 @@ const vm = new Vue({
   },
   methods: {
     generate: function(days = 7){
-      console.debug(`generate menu for ${days} days`)
+      // console.debug(`generate menu for ${days} days`)
+
+      // list of meals to chose from is refreshed when beginning the process
+      this.plats = this.refPlats.map(x => x)
       this.menu = []
 
       for (let i = 0; i < days; i++){
@@ -57,9 +65,28 @@ const vm = new Vue({
       const idx = Math.floor(Math.random() * Math.floor(list.length))
       const plat = list[idx]
 
-      this.plats = this.plats.filter(x => x != plat)
+      // count number of ocurrences, remove from list when limit is reached
+      if (++plat.count >= plat.max)
+        this.plats = this.plats.filter(x => x != plat)
 
-      return plat
+      return this.createPlat(plat)
+    },
+
+    // flesh out plat if it is generic/variable. Otherwise returns the orignal name
+    createPlat: function(plat){
+      const attrs = ['viande', 'legume', 'feculent', 'variante']
+      const generated = { nom: plat.nom }
+
+      attrs.forEach(attr => {
+        const varList = plat[attr]
+        if (Array.isArray(varList)){
+          const idx = Math.floor(Math.random() * Math.floor(varList.length)),
+                value = varList[idx]
+          generated.nom = generated.nom.replace(`{${attr}}`, value)
+        }
+      })
+
+      return generated
     }
   }
 })

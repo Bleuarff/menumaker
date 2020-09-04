@@ -3,8 +3,6 @@
 # - repas: limite plat au déjeuner ou au diner
 # - max (default: 1): ocurrences du plat dans les menus
 
-- nom: lasagnes
-
 - nom: salade de riz
 
 - nom: salde verte
@@ -13,11 +11,17 @@
 
 - nom: salade grecque
 
-- nom: random_1 [TODO]
-  viande: saucisse, jambon, filet de poulet
-  feculent: pommes de terre, semoule, lentilles, pâtes, riz
-  legume: courgettes, petits pois, haricots, broccolis, chou-fleur
+- nom: '{viande} {feculent} {legume}'
+  viande: [saucisse, jambon, filet de poulet]
+  feculent: [pommes de terre, semoule, lentilles, pâtes, riz]
+  legume: [courgettes, petits pois, haricots, broccolis, chou-fleur]
   max: 4
+
+- nom: quiche {variante}
+  variante: [lorraine, thon, épinard/chèvre, saumon]
+
+- nom: lasagnes {variante}
+  variante: [bolognaise, saumon, végétariennes]
 
 - nom: saucisses puree
   repas: dej
@@ -38,44 +42,25 @@
 - nom: croque-monsieur
 - nom: galettes legumes/avoine
   repas: diner
--
-  nom: hamburgers salade
-  repas: dej
--
-  nom: poelee haricots/oignons/tomates/steacks
-  repas: dej
--
-  nom: poisson-riz-haricots
+
+- nom: hamburgers salade
   repas: dej
 
-- nom: quiche [TODO]
-  variante: lorraine, thon, épinard/chèvre, saumon
-# -
-#   nom: quiche thon
-# -
-#   nom: quiche epinard chevre
-# -
-#   nom: quiche saumon
--
-  nom: pates-courgettes
--
-  nom: riz petit-pois
--
-  nom: semoule courgettes
--
-  nom: ratatouille
--
-  nom: boudin noir puree
+- nom: poelee haricots/oignons/tomates/steacks
   repas: dej
--
-  nom: boudin blanc salade
--
-  nom: lasagnes saumon
--
-  nom: lasagnes vegetariennes
--
-  nom: oeufs a la coque
+
+- nom: poisson-riz-haricots
+  repas: dej
+
+- nom: ratatouille
+
+- nom: boudin noir puree
+  repas: dej
+
+- nom: boudin blanc salade
+
+- nom: oeufs a la coque
   repas: diner
--
-  nom: pdt steacks haricots
+
+- nom: pdt steacks haricots
   repas: dej
