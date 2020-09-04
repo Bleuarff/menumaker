@@ -54,6 +54,8 @@ const vm = new Vue({
       }
     },
 
+    // TODO: check current sublist is not empty.
+    // selects a new meal for the given repas
     getPlat: function(repas){
       let list
 
@@ -87,6 +89,11 @@ const vm = new Vue({
       })
 
       return generated
+    },
+
+    // replace repas in day with a random new meal
+    replaceOne: function(repas, dayIdx){
+      this.menu[dayIdx][repas] = this.getPlat(repas).nom
     }
   }
 })

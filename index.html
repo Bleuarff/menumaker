@@ -16,17 +16,20 @@
 
       <div id="menu-ctnr">
         <div v-for="(day, i) in menu" class="day">
-          <span class="dow">{{semaine[day.dow]}}</span>
+          <div class="dow">{{semaine[day.dow]}}</div>
+
           <ol class="menus">
             <li>
               <div class="menu">
                 {{day.dej}}
               </div>
+              <button class='replace' v-on:click="replaceOne('dej', i)">&#8634;</button>
             </li>
             <li>
               <div class="menu">
                 {{day.diner}}
               </div>
+              <button class='replace' v-on:click="replaceOne('diner', i)">&#8634;</button>
             </li>
           </ol>
         </div>
