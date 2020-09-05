@@ -11,8 +11,10 @@
   </head>
   <body>
     <div id="app">
-      <span class="title">Menumaker</span>
-      <button v-on:click="generate(7)" id="go">Generer le menu</button>
+      <header>
+        <span class="title">Menumaker</span>
+        <button v-on:click="generate(7)" id="go">Generer le menu</button>
+      </header>
 
       <div id="menu-ctnr">
         <div v-for="(day, i) in menu" class="day">

@@ -5,18 +5,29 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
+body{
+  margin: 0;
+  padding: 0;
+}
+header{
+  display: block;
+  height: 2em;
+}
+
 #menu-ctnr{
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  height: 80vh;
   margin: 1em;
+  min-height: calc(100vh - 4em);
+  height: 80vh;
 }
 
 .day{
   flex: 0 0 24%;
   height: 50%;
   position: relative;
+  min-width: 250px;
 
   border: 1px solid #a2a2a2;
   border-radius: 5px;
@@ -71,6 +82,7 @@
   position: absolute;
   left: 50%;
   bottom: 7%;
+  width: 33%;
   transform: translateX(-50%);
   padding: 0;
   margin: 0;
