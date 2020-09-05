@@ -43,8 +43,9 @@ const vm = new Vue({
       this.menu = []
 
       for (let i = 0; i < days; i++){
-        const dej = this.getPlat('dej'),
-              diner = this.getPlat('diner')
+        const dow = i % 7,
+              dej = this.getPlat('dej', dow),
+              diner = this.getPlat('diner', dow)
 
         this.menu.push({
           dow: i % 7,
@@ -56,13 +57,17 @@ const vm = new Vue({
 
     // TODO: check current sublist is not empty.
     // selects a new meal for the given repas
-    getPlat: function(repas){
+    getPlat: function(repas, dow = 0){
       let list
 
+      // get the right list
       if (repas === 'dej')
         list = this.dejList
       else
         list = this.dinerList
+
+      // filter it to remove recipes not allowed on this day of the week
+      list = list.filter(x => !x.dow || x.dow.includes(dow))
 
       if (!list || !list.length){
         console.warn(`plus de plat pour le ${repas} :(`)
@@ -98,7 +103,7 @@ const vm = new Vue({
 
     // replace repas in day with a random new meal
     replaceOne: function(repas, dayIdx){
-      const newPlat = this.getPlat(repas)
+      const newPlat = this.getPlat(repas, dayIdx % 7)
 
       if (newPlat)
         this.menu[dayIdx][repas] = newPlat.nom
