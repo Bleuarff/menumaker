@@ -48,8 +48,8 @@ const vm = new Vue({
 
         this.menu.push({
           dow: i % 7,
-          dej: dej.nom,
-          diner: diner.nom
+          dej: dej ? dej.nom : '-- RIEN ---',
+          diner: diner ? diner.nom : '-- RIEN ---'
         })
       }
     },
@@ -63,6 +63,11 @@ const vm = new Vue({
         list = this.dejList
       else
         list = this.dinerList
+
+      if (!list || !list.length){
+        console.warn(`plus de plat pour le ${repas} :(`)
+        return
+      }
 
       const idx = Math.floor(Math.random() * Math.floor(list.length))
       const plat = list[idx]
@@ -93,7 +98,10 @@ const vm = new Vue({
 
     // replace repas in day with a random new meal
     replaceOne: function(repas, dayIdx){
-      this.menu[dayIdx][repas] = this.getPlat(repas).nom
+      const newPlat = this.getPlat(repas)
+
+      if (newPlat)
+        this.menu[dayIdx][repas] = newPlat.nom
     }
   }
 })

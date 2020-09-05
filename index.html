@@ -23,13 +23,13 @@
               <div class="menu">
                 {{day.dej}}
               </div>
-              <button class='replace' v-on:click="replaceOne('dej', i)">&#8634;</button>
+              <button :class="['replace', {visible: dejList.length}]" v-on:click="replaceOne('dej', i)">&#8634;</button>
             </li>
             <li>
               <div class="menu">
                 {{day.diner}}
               </div>
-              <button class='replace' v-on:click="replaceOne('diner', i)">&#8634;</button>
+              <button :class="['replace', {visible: dinerList.length}]" v-on:click="replaceOne('diner', i)">&#8634;</button>
             </li>
           </ol>
         </div>
