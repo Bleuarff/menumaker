@@ -25,13 +25,17 @@
               <div class="menu">
                 {{day.dej}}
               </div>
-              <button :class="['replace', {visible: dejList.length}]" v-on:click="replaceOne('dej', i)">&#8634;</button>
+              <div class="actions">
+                <button :class="['replace', {visible: dejList.length}]" v-on:click="replaceOne('dej', i)">&#8634;</button>
+              </div>
             </li>
             <li>
               <div class="menu">
                 {{day.diner}}
               </div>
-              <button :class="['replace', {visible: dinerList.length}]" v-on:click="replaceOne('diner', i)">&#8634;</button>
+              <div>
+                <button :class="['replace', {visible: dinerList.length}]" v-on:click="replaceOne('diner', i)">&#8634;</button>
+              </div>
             </li>
           </ol>
         </div>
